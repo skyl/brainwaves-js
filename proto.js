@@ -78,10 +78,9 @@
         return window.onresize = function() {};
       }
     };
+    $scope.then = (new Date()).getTime();
     changeHertz = function(newval, oldval) {
-      $scope.then = (new Date()).getTime();
-      $scope.ms = 1000.0 / newval;
-      return $scope.clear = false;
+      return $scope.ms = 1000.0 / newval;
     };
     changeHertz();
     $scope.$watch('hertz', changeHertz);

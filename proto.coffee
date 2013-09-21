@@ -55,10 +55,11 @@ window.HertzBlinker = ($scope) ->
       window.removeEventListener 'resize', full
       window.onresize = ->
 
+  $scope.then = (new Date()).getTime()
   changeHertz = (newval, oldval) ->
-    $scope.then = (new Date()).getTime()
+    #$scope.then = (new Date()).getTime()
     $scope.ms = 1000.0 / newval
-    $scope.clear = false
+    #$scope.clear = false
   changeHertz()
   $scope.$watch 'hertz', changeHertz
   ms = 1000.0 / $scope.hertz
