@@ -1,0 +1,30 @@
+<!--
+Make a canvas beat at n hertz, where n is a value from the UI.
+-->
+<html ng-app>
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="proto.js"></script>
+  </head>
+
+  <body>
+    <div ng-controller="HertzBlinker" class="left">
+      <div>
+        <div>hertz: <input id="hertz" ng-model="hertz"></div>
+        <input
+          type="range" id="hertz_range" ng-model="hertz"
+          step=0.001 min=0.000 max=80.00 style="width: 100%">
+      </div>
+      <div ng-repeat="color in colors">
+        <input ng-model="color.r" type="range" min=0 max=255 step=1>
+        <input ng-model="color.g" type="range" min=0 max=255 step=1>
+        <input ng-model="color.b" type="range" min=0 max=255 step=1>
+        <input ng-model="color.a" type="range" min=0 max=1 step=0.001>
+        Ok {{ color }}
+      </div>
+      <canvas ng-click="fullscreen_toggle()"
+        id="canvas" style="width: 100%">Support your canvas!</canvas>
+    </div>
+  </body>
+</html>
